@@ -4,8 +4,9 @@ import json
 
 import requests
 from flask import Flask, request
-from chatterbot.trainers import ChatterBotCorpusTrainer
 import chatterbot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
 from chatterbot import ChatBot
 chatbot = ChatBot("Training Example",read_only=True,
     trainer='chatterbot.trainers.ChatterBotCorpusTrainer',
