@@ -56,7 +56,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's face-book ID
                     message_text = messaging_event["message"]["text"]  # the message's text
                     mess=chatbot.get_response(message_text)
-                    send_message(sender_id, mess)
+                    send_message(sender_id, str(mess))
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
