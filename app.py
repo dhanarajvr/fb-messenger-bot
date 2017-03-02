@@ -14,13 +14,13 @@ chatbot = ChatBot("Training Example",read_only=True,
     database="./database.json")
 
 chatbot.set_trainer(ChatterBotCorpusTrainer)
-'''
+
 print "training..."
 
 chatbot.train(
-"chatterbot.corpus.english.greetings"
+"chatterbot.corpus.english.conversations"
 )
-print "training finished"'''
+print "training finished"
 print chatbot.get_response("yes")
 import grammar_check
 tool = grammar_check.LanguageTool('en-GB')
