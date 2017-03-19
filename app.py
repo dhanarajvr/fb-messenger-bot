@@ -1,7 +1,7 @@
 import os
 import sys
 import json
-
+import mandrain
 import requests
 from flask import Flask, request
 import chatterbot
@@ -64,10 +64,15 @@ def webhook():
                     	mess=chatbot.get_response(message_text)
                     	send_message(sender_id, str(mess))
 			send_message(sender_id, "just checking for grammar...")
+
 			send_message(sender_id, str(gram))
 		    else:
 			mess=chatbot.get_response(message_text)
                     	send_message(sender_id, str(mess))
+                    k = mandrain.Mandrains()
+		    pin=k.eng2pyin(message_text)
+	            if pin!=None:
+		    	send_message(sender_id,"the PinYin is"+"\n"+pin)
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
