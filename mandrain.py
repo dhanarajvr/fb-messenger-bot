@@ -5,6 +5,6 @@ with open('input.json','r') as f:
 class Mandrains():
     def eng2pyin(self, sentence):
         if sentence.strip() in dic:
-            return dic[sentence.strip()]
+            return dic[sentence.strip()][0]
 
 
