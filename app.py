@@ -57,7 +57,8 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's face-book ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-		    if len(message_text.split())>2:
+			'''		    
+			if len(message_text.split())>2:
 			text = message_text
 			matches = tool.check(text)
 			gram=grammar_check.correct(text, matches)
@@ -68,11 +69,13 @@ def webhook():
 			send_message(sender_id, str(gram))
 		    else:
 			mess=chatbot.get_response(message_text)
-                    	send_message(sender_id, str(mess))
-                    k = mandrain.Mandrains()
-		    pin=k.eng2pyin(message_text)
-	            if pin!=None:
-		    	send_message(sender_id,"the PinYin is"+"\n"+pin)
+            		send_message(sender_id, str(mess))'''
+                k = mandrain.Mandrains()
+		pin=k.eng2pyin(message_text)
+	        if pin!=None:
+			send_message(sender_id,"the PinYin is"+"\n"+pin)
+		else:
+			send_message(sender_id,"PinYin not found")
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
