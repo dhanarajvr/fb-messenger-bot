@@ -70,20 +70,20 @@ def webhook():
 		    else:
 			mess=chatbot.get_response(message_text)
             		send_message(sender_id, str(mess))'''
-                   k = mandrain.Mandrains()
-		   pin=k.eng2pyin(message_text)
-	           if pin!=None:
-		   	send_message(sender_id,"the PinYin is"+"\n"+pin)
-		   else:
+                k = mandrain.Mandrains()
+		pin=k.eng2pyin(message_text)
+	        if pin!=None:
+			send_message(sender_id,"the PinYin is"+"\n"+pin)
+		else:
 			send_message(sender_id,"PinYin not found")
 
-                   if messaging_event.get("delivery"):  # delivery confirmation
-                   	pass
+                if messaging_event.get("delivery"):  # delivery confirmation
+                	pass
 
-                   if messaging_event.get("optin"):  # optin confirmation
-                   	pass
+                if messaging_event.get("optin"):  # optin confirmation
+                	pass
 
-                   if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
+               	if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
                    	pass
 
     return "ok", 200
