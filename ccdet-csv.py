@@ -1,15 +1,15 @@
 import pandas as pd
 import re
-dicto={'mandrain':[],'pynin':[],'english':[]}
+dicto={'Mandarin':[],'PinYin':[],'English':[]}
 lines=open('/home/dhanraj/Documents/cedict_ts.txt').readlines()
 for line in lines:
     k=re.split('\/',line)
     l=re.split('\[',k[0])
 
-    dicto['mandrain'].append(l[0])
-    dicto['pynin'].append(re.sub('\]','',l[1]))
-    dicto['english'].append(k[1])
+    dicto['Mandarin'].append(l[0])
+    dicto['PinYin'].append(re.sub('\]','',l[1]))
+    dicto['English'].append(k[1].lower().strip())
 
-df=pd.DataFrame(dicto,columns=['mandrain','pynin','english'])
+df=pd.DataFrame(dicto,columns=['Mandarin','PinYin','English'])
 df.to_excel('out.xlsx')
 

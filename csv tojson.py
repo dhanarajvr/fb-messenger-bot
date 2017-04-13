@@ -5,7 +5,7 @@ df=pd.read_excel('out.xlsx',encoidng='utf-8')
 dic={}
 for index, row in df.iterrows():
     #print row['Mandarin']
-    k=row['English']
+    k=row['English'].lower().strip()
     dic[k]=[unidecode(row['PinYin']).lower().strip(),unidecode(row['Mandarin']).lower().strip()]
 
 with open('input.json','w+') as f:
