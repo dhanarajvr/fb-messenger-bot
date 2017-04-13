@@ -6,7 +6,7 @@ dic={}
 for index, row in df.iterrows():
     #print row['Mandarin']
     k=row['English']
-    dic[k]=[unidecode(row['PinYin']),unidecode(row['Mandarin'])]
+    dic[k]=[unidecode(row['PinYin']).lower().strip(),unidecode(row['Mandarin']).lower().strip()]
 
 with open('input.json','w+') as f:
     f.write(json.dumps(dic))
